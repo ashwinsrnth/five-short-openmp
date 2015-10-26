@@ -19,10 +19,7 @@ int main () {
 
     #pragma omp parallel private(i, tid)
     {
-        nthreads = omp_get_num_threads();
-        chunk_size = N/nthreads;
         tid = omp_get_thread_num();
-
         #pragma omp for
         for (i=0; i<N; i++) {
             a[i] = tid;
@@ -33,3 +30,5 @@ int main () {
         printf("%f\n", a[i]);
     }
 }
+
+
